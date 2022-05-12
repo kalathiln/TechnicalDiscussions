@@ -3,6 +3,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.IntSummaryStatistics;
 import java.util.List;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -45,7 +46,20 @@ public class TechnicalDiscussion {
 
         readCsvCheckForValidity();
 
+        //Usage of Instream and summary statistics
 
+        printSummaryStatistics();
+
+
+
+    }
+
+    private static void printSummaryStatistics() {
+
+        IntSummaryStatistics summaryStats = IntStream.range(1, 99).summaryStatistics();
+        System.out.println("======================================\nPrinting Summary stats of the 1st 100 Numbers : \n================================");
+        System.out.println(summaryStats);
+        System.out.println("Average of 1 to 99 : "+summaryStats.getAverage());
     }
 
     private static void readCsvCheckForValidity() {
